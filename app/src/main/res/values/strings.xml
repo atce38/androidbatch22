@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">AndroidB21</string>
+
+    <string name="text">Hello Hassam From Controller Welcome in our android second class!</string>
+    <string name="st">Some Text</string>
+    <string name="open">Drawer Open</string>
+    <string name="close">Drawer Close</string>
+</resources>
