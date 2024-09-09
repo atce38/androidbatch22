@@ -11,6 +11,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.atce.androidb21.R;
 import com.atce.androidb21.model.ApplicationModel;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -34,7 +36,12 @@ public class ApplicationAdapter extends RecyclerView.Adapter<ApplicationAdapter.
         ApplicationModel app = appList.get(position);
         holder.appName.setText(app.getAppName());
         // Set app icon using Glide or Picasso library
+//        Glide.with(holder.itemView.getContext())
+//                .load(app.getAppIcon())
+//                .diskCacheStrategy(DiskCacheStrategy.DATA)
+//                .into(holder.appIcon);
         Picasso.get().load(app.getAppIcon()).into(holder.appIcon);
+
     }
 
     @Override

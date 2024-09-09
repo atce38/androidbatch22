@@ -87,7 +87,7 @@ public class ApplicationsActivity extends AppCompatActivity {
 // Entertainment Applications
         List<ApplicationModel> entertainmentApps = new ArrayList<>();
         // Entertainment Application Icon URLs
-        String netflixIconUrl = "https://cdn-icons-png.flaticon.com/256/5968/5968020.png";
+        String netflixIconUrl = "https://cdn-icons-png.flaticon.com/256/732/732228.png";
         String spotifyIconUrl = "https://cdn-icons-png.flaticon.com/256/2111/2111624.png";
         String youtubeIconUrl = "https://cdn-icons-png.flaticon.com/256/1384/1384060.png";
         String huluIconUrl = "https://cdn-icons-png.flaticon.com/256/888/888844.png";
