@@ -34,12 +34,12 @@ public class ApplicationsActivity extends AppCompatActivity {
 
         List<ApplicationModel> socialApps = new ArrayList<>();
         // Social Media Application Icon URLs
-        String facebookIconUrl = "https://cdn.iconscout.com/icon/premium/png-256-thumb/facebook-2752192-2285009.png";
+        String facebookIconUrl = "https://cdn-icons-png.flaticon.com/256/733/733547.png";
         String instagramIconUrl = "https://cdn-icons-png.freepik.com/256/15707/15707869.png";
-        String twitterIconUrl = "https://img.freepik.com/free-vector/new-2023-twitter-logo-x-icon-design_1017-45418.jpg?size=338&ext=jpg";
+        String twitterIconUrl = "https://cdn-icons-png.flaticon.com/256/124/124021.png";
         String snapchatIconUrl = "https://cdn-icons-png.flaticon.com/256/1384/1384066.png";
         String linkedInIconUrl = "https://cdn-icons-png.flaticon.com/256/174/174857.png";
-        String tiktokIconUrl = "https://seeklogo.com/images/T/tiktok-icon-logo-1CB398A1BD-seeklogo.com.png";
+        String tiktokIconUrl = "https://cdn-icons-png.flaticon.com/256/5968/5968812.png";
         String pinterestIconUrl = "https://cdn-icons-png.flaticon.com/256/145/145808.png";
         String redditIconUrl = "https://cdn-icons-png.flaticon.com/256/1384/1384051.png";
         String whatsappIconUrl = "https://cdn-icons-png.flaticon.com/256/152/152740.png";
