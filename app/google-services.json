@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "846311980651",
+    "project_id": "androidb21-99c13",
+    "storage_bucket": "androidb21-99c13.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:846311980651:android:219725751616d21d6efb2e",
+        "android_client_info": {
+          "package_name": "com.atce.androidb21"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBdme70uq3bVKFqB3IqZmHqHLPmR1zBWHg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

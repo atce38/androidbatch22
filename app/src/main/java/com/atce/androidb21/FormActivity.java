@@ -23,19 +23,20 @@ import androidx.core.view.GravityCompat;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
 
+import com.atce.androidb21.fragments.HomeFragment;
+import com.atce.androidb21.fragments.ProfileFragment;
+import com.atce.androidb21.fragments.SettingsFragment;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class FormActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    Spinner citySpinner;
-    String [] cities={"Select City","Gujranwala","Lahore","Kamoke","Gujrat"};
-    RadioGroup genderGrp;
-    Button btnSave;
-    String selected_city;
-    CheckBox bio,eng,urdu;
+
     DrawerLayout drawer_layout;
     NavigationView navigation_view;
+    FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +48,7 @@ public class FormActivity extends AppCompatActivity implements NavigationView.On
             return insets;
         });
         Toolbar toolbar=findViewById(R.id.toolbar);
+        mAuth=FirebaseAuth.getInstance();
         setSupportActionBar(toolbar);
         drawer_layout=findViewById(R.id.drawer_layout);
         navigation_view=findViewById(R.id.navigation_view);
@@ -54,53 +56,9 @@ public class FormActivity extends AppCompatActivity implements NavigationView.On
         ActionBarDrawerToggle toggle=new ActionBarDrawerToggle(this,drawer_layout,toolbar,R.string.open,R.string.close);
         drawer_layout.addDrawerListener(toggle);
         toggle.syncState();
+        HomeFragment homeFragment=new HomeFragment();
+        getSupportFragmentManager().beginTransaction().add(R.id.fr_container,homeFragment).commit();
 
-        citySpinner=findViewById(R.id.citySpinner);
-        genderGrp=findViewById(R.id.genderGrp);
-        btnSave=findViewById(R.id.btnSave);
-        bio=findViewById(R.id.bio);
-        eng=findViewById(R.id.eng);
-        urdu=findViewById(R.id.urdu);
-
-        ArrayAdapter<String> adapter=new ArrayAdapter<>(this, android.R.layout.simple_spinner_item,cities);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        citySpinner.setAdapter(adapter);
-
-        citySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                selected_city=cities[position];
-
-
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-        btnSave.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                RadioButton rdButton=findViewById(genderGrp.getCheckedRadioButtonId());
-                String subjects="";
-
-                Toast.makeText(FormActivity.this, "City: "+selected_city, Toast.LENGTH_SHORT).show();
-                Toast.makeText(FormActivity.this, "Gender: "+rdButton.getText().toString(), Toast.LENGTH_SHORT).show();
-
-                if(urdu.isChecked()){
-                    subjects+=","+urdu.getText().toString();
-                }
-                if(eng.isChecked()){
-                    subjects+=","+eng.getText().toString();
-                }
-                if(bio.isChecked()){
-                    subjects+=","+bio.getText().toString();
-                }
-                Toast.makeText(FormActivity.this, "Select Subjects: "+subjects, Toast.LENGTH_SHORT).show();
-
-            }
-        });
 
     }
 
@@ -126,13 +84,31 @@ public class FormActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int id=item.getItemId();
+        if(id == R.id.item_home){
+            HomeFragment homeFragment=new HomeFragment();
+            loadFragment(homeFragment);
+            Toast.makeText(this, "Settings is Clicked", Toast.LENGTH_SHORT).show();
+        }
         if(id == R.id.item_settings){
+            SettingsFragment settingsFragment=new SettingsFragment();
+            loadFragment(settingsFragment);
             Toast.makeText(this, "Settings is Clicked", Toast.LENGTH_SHORT).show();
         }
         if (id == R.id.item_profile){
+            ProfileFragment profileFragment=new ProfileFragment();
+            loadFragment(profileFragment);
             Toast.makeText(this, "Profile is Clicked", Toast.LENGTH_SHORT).show();
+        }
+        if (id == R.id.item_logout){
+           mAuth.signOut();
+           Common.startMyActivity(this,LoginActivity.class);
         }
         drawer_layout.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void loadFragment(Fragment fragment) {
+
+        getSupportFragmentManager().beginTransaction().replace(R.id.fr_container,fragment).commit();
     }
 }
