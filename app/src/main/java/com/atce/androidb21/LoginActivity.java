@@ -23,7 +23,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class LoginActivity extends AppCompatActivity {
 
     EditText edtEmail,edtPassword;
-    Button btnSignup,btnSignin;
+    Button btnSignup,btnSignin,btnForget;
     FirebaseAuth mAtuh;
 
     @Override
@@ -38,6 +38,7 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         edtEmail=findViewById(R.id.edtEmail);
+        btnForget=findViewById(R.id.btnForget);
         edtPassword=findViewById(R.id.edtPassword);
         btnSignup=findViewById(R.id.btnSignup);
         btnSignin=findViewById(R.id.btnSignin);
@@ -51,6 +52,12 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Common.startMyActivity(LoginActivity.this,SignupActivity.class);
+            }
+        });
+        btnForget.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Common.startMyActivity(LoginActivity.this,ResetPassowrdActivity.class);
             }
         });
         btnSignin.setOnClickListener(new View.OnClickListener() {

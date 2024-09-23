@@ -2,6 +2,7 @@ package com.atce.androidb21.fragments;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -18,6 +19,12 @@ import android.widget.Toast;
 
 import com.atce.androidb21.FormActivity;
 import com.atce.androidb21.R;
+import com.atce.androidb21.Student;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 
 public class HomeFragment extends Fragment {
@@ -28,6 +35,8 @@ public class HomeFragment extends Fragment {
     Button btnSave;
     String selected_city;
     CheckBox bio,eng,urdu;
+
+    DatabaseReference db;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -46,6 +55,27 @@ public class HomeFragment extends Fragment {
         bio=view.findViewById(R.id.bio);
         eng=view.findViewById(R.id.eng);
         urdu=view.findViewById(R.id.urdu);
+
+        db= FirebaseDatabase.getInstance().getReference();
+
+        Student student=new Student("Hassam","11223344","Some Address");
+//        db.child("a").child("r").setValue("Hello Class");
+        String key=db.push().getKey();
+        student.setNode(key);
+        db.child("Students").child(key).setValue(student);
+
+        db.child("Students").child("001").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                Student student1=snapshot.getValue(Student.class);
+                btnSave.setText(""+student1.getName()+"\n"+student1.getPhone()+"\n"+student1.getAddress());
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
         ArrayAdapter<String> adapter=new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item,cities);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);

@@ -7,6 +7,28 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".StudentListActivity">
+<!--    CRUD-->
+    <EditText
+        android:id="@+id/edtName"
+        android:text="Enter Name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <EditText
+        android:id="@+id/edtPhone"
+        android:text="Enter Phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <EditText
+        android:id="@+id/edtAddress"
+        android:text="Enter Address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <Button
+        android:id="@+id/btnUpdate"
+        android:text="Update"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/studentListView"
         android:layout_width="match_parent"

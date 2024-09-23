@@ -1,12 +1,23 @@
 package com.atce.androidb21;
 
 public class Student {
-    String name,phone,address;
+    String name,phone,address,node;
+
+    public Student() {
+    }
 
     public Student(String name, String phone, String address) {
         this.name = name;
         this.phone = phone;
         this.address = address;
+    }
+
+    public String getNode() {
+        return node;
+    }
+
+    public void setNode(String node) {
+        this.node = node;
     }
 
     public String getName() {
