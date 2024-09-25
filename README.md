@@ -17,4 +17,4 @@ Include screenshots of your application here to give users a visual idea of the 
 1. **Clone the Repository:**
 
    ```bash
-   git clone https://github.com/yourusername/yourrepository.git
+   git clone https://github.com/atce38/androidbatch22.git
