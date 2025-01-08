@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SqliteActivity">
+
+<!--    <TextView-->
+<!--        android:id="@+id/txtTitle"-->
+<!--        android:layout_centerInParent="true"-->
+<!--        android:text="Some Text"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"/>-->
+    <EditText
+        android:id="@+id/edtTitle"
+        android:layout_width="match_parent"
+        android:hint="Enter Book Title"
+        android:layout_height="wrap_content"/>
+    <EditText
+        android:id="@+id/edtEdition"
+        android:layout_width="match_parent"
+        android:hint="Enter Book Edition"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/btnSave"
+        android:text="Save"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_books"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"/>
+
+
+</LinearLayout>
